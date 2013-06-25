@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
-* This class is used to store preferences
+* This class is used to store preferences and acts as shared memory
+* between the activity and the service
 * @author Hathibelagal
 */
 public class SharedMemory {
