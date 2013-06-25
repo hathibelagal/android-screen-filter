@@ -20,14 +20,14 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 */
 public class MainActivity extends Activity implements OnSeekBarChangeListener {
 	
-	SharedMemory shared;	
+    SharedMemory shared;	
 	
-	SeekBar alphaSeek;
-	SeekBar redSeek;
-	SeekBar greenSeek;
-	SeekBar blueSeek;
+    SeekBar alphaSeek;
+    SeekBar redSeek;
+    SeekBar greenSeek;
+    SeekBar blueSeek;
 	
-	int alpha,red,green,blue;
+    int alpha,red,green,blue;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,8 +72,8 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
     	}
     }
 
-	@Override
-	public void onProgressChanged(SeekBar seekBar, int progress,
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress,
 			boolean fromUser) {
 		if(seekBar==alphaSeek){
 			alpha=seekBar.getProgress();
@@ -88,19 +88,19 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
 			blue=seekBar.getProgress();
 		}
 		updateColor();
-	}
+    }
 	
-	private void updateColor(){		
+    private void updateColor(){		
 		int color=SharedMemory.getColor(alpha, red, green, blue);
 		ColorDrawable cd=new ColorDrawable(color);
 		getWindow().setBackgroundDrawable(cd);
-	}
+    }
 
-	@Override
-	public void onStartTrackingTouch(SeekBar sb) {}
+    @Override
+    public void onStartTrackingTouch(SeekBar sb) {}
 
-	@Override
-	public void onStopTrackingTouch(SeekBar sb) {}
+    @Override
+    public void onStopTrackingTouch(SeekBar sb) {}
 
     public void cancelClick(View v){
     	finish();
