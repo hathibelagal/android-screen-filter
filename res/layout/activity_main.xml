@@ -1,0 +1,132 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >    
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+	    android:layout_alignParentBottom="true"
+	    android:background="#303030"
+	    android:orientation="vertical"
+        >
+        <TextView 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Filter Settings"
+            android:textSize="18dp"
+            android:textColor="#f1f2f3"
+            android:padding="10dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+	        android:layout_height="2dp"
+	        android:background="#33b5e5"
+            />
+	    <RelativeLayout
+	        android:id="@+id/container"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"	        
+	        android:padding="10dp"	        
+	        >
+	        <TextView android:layout_width="50dp"
+	            android:layout_height="wrap_content"
+	            android:id="@+id/alphaLabel"
+	            android:padding="5dp"
+	            android:text="Alpha"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignParentTop="true"
+	            android:textColor="#fff1f2f3"
+	            />
+	        
+	        <SeekBar            
+		        android:id="@+id/alphaControl"
+		        android:max="255"
+		        android:layout_width="match_parent"
+		        android:layout_toRightOf="@+id/alphaLabel"
+	            android:layout_alignParentTop="true"
+		        android:layout_height="wrap_content" />
+	        
+	        <TextView android:layout_width="50dp"
+	            android:layout_height="wrap_content"
+	            android:text="Red"            
+	            android:id="@+id/redLabel"
+	            android:padding="5dp"
+	            android:layout_alignParentLeft="true"
+	            android:layout_below="@+id/alphaControl"
+	            android:textColor="#f1f2f3"
+	            />
+	        
+	        <SeekBar
+	            android:layout_toRightOf="@+id/redLabel"
+	            android:layout_below="@+id/alphaControl"
+		        android:id="@+id/redControl"
+		        android:max="255"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"/>
+	        
+	        <TextView android:layout_width="50dp"
+	            android:layout_height="wrap_content"
+	            android:text="Green"
+	            android:id="@+id/greenLabel"
+	            android:padding="5dp"
+	            android:layout_alignParentLeft="true"
+	            android:layout_below="@+id/redControl"
+	            android:textColor="#f1f2f3"
+	            />
+	        
+	        <SeekBar
+	            android:layout_toRightOf="@+id/greenLabel"
+	            android:layout_below="@+id/redControl"
+		        android:id="@+id/greenControl"
+		        android:max="255"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"/>
+	        
+	        <TextView android:layout_width="50dp"
+	            android:layout_height="wrap_content"
+	            android:text="Blue"
+	            android:padding="5dp"
+	            android:id="@+id/blueLabel"
+	            android:layout_alignParentLeft="true"
+	            android:layout_below="@+id/greenControl"
+	            android:textColor="#f1f2f3"
+	            />
+	        
+	        <SeekBar
+	            android:layout_toRightOf="@+id/blueLabel"
+	            android:layout_below="@+id/greenControl"
+		        android:id="@+id/blueControl"
+		        android:max="255"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"/>
+	        
+	        <LinearLayout 
+		        android:id="@+id/buttons"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/blueControl"
+		        android:orientation="horizontal"
+		        android:layout_marginTop="10dp"
+	        >
+		        <Button  android:layout_width="0dp"
+		            android:layout_weight="1"
+		        	android:layout_height="wrap_content"
+		        	android:text="Remove Filter"
+		        	android:onClick="cancelClick"
+		        	/>
+
+		        <Button
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:onClick="applyClick"
+		            android:text="Apply Filter" />
+
+	    	</LinearLayout>
+	    </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

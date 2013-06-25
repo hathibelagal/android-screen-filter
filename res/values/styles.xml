@@ -1,0 +1,14 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="android:Theme.Black" />
+
+    <style name="Transparency" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+	    <item name="android:windowBackground">@color/transparent</item>
+	    <item name="android:windowContentOverlay">@null</item>
+	    <item name="android:windowNoTitle">true</item>
+	    <item name="android:windowFullscreen">true</item>	    
+	    <item name="android:backgroundDimEnabled">false</item>	    
+    </style>
+    
+</resources>
