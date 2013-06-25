@@ -36,20 +36,20 @@ public class MainService extends Service {
 	}
 
 	@Override
-    public void onCreate() {
-        super.onCreate();
-        shared=new SharedMemory(this);
-        mView = new LinearLayout(this);   
-        mView.setBackgroundColor(shared.getColor());
-        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
-                0 | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-                PixelFormat.TRANSLUCENT);        
-        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
-        wm.addView(mView, params);
-    }
+	public void onCreate() {
+	        super.onCreate();
+        	shared=new SharedMemory(this);
+	        mView = new LinearLayout(this);   
+        	mView.setBackgroundColor(shared.getColor());
+	        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+                	WindowManager.LayoutParams.MATCH_PARENT,
+        	        WindowManager.LayoutParams.MATCH_PARENT,
+	                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
+                	0 | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+        	        PixelFormat.TRANSLUCENT);        
+	        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+        	wm.addView(mView, params);
+	}
 	
 	@Override
 	public void onDestroy() {			
