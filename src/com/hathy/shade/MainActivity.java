@@ -11,7 +11,9 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.SeekBar;
+import android.widget.CheckBox;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
 /**
@@ -26,8 +28,10 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
     SeekBar redSeek;
     SeekBar greenSeek;
     SeekBar blueSeek;
+    CheckBox bblOffCheckBox;
 	
     int alpha,red,green,blue;
+    boolean bblOff;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,21 +50,30 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
     	redSeek=(SeekBar)findViewById(R.id.redControl);
     	greenSeek=(SeekBar)findViewById(R.id.greenControl);
     	blueSeek=(SeekBar)findViewById(R.id.blueControl);
+			bblOffCheckBox = (CheckBox) findViewById(R.id.bblOff);
     	
     	alphaSeek.setOnSeekBarChangeListener(this);    	
     	redSeek.setOnSeekBarChangeListener(this);    	
     	greenSeek.setOnSeekBarChangeListener(this);
     	blueSeek.setOnSeekBarChangeListener(this);
+			bblOffCheckBox.setOnClickListener(new OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  bblOff = ((CheckBox) v).isChecked();
+              }
+          });
     	
     	alpha=shared.getAlpha();
     	red=shared.getRed();
     	green=shared.getGreen();
     	blue=shared.getBlue();
+			bblOff=shared.getBblOff();
     	
     	alphaSeek.setProgress(alpha);
     	redSeek.setProgress(red);
     	greenSeek.setProgress(green);
     	blueSeek.setProgress(blue);
+			bblOffCheckBox.setChecked(bblOff);
     	
     	updateColor();
     }
@@ -111,6 +124,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
     	shared.setRed(red);
     	shared.setGreen(green);
     	shared.setBlue(blue);
+      shared.setBblOff(bblOff);
     	
     	Intent i=new Intent(MainActivity.this, MainService.class);
         startService(i);
@@ -140,3 +154,4 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener {
     	mNotificationManager.notify(0x355, nb.build());
     }
 }
+

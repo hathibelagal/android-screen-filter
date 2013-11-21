@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
 import android.view.Gravity;
+import android.view.Window;
 import android.view.WindowManager;
+import android.view.WindowManager.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+import android.util.Log;
 
 /**
 * This is the class that is responsible for adding the filter on the
@@ -17,7 +20,7 @@ import android.widget.Toast;
 * @author Hathibelagal
 */
 public class MainService extends Service {
-
+  public final static String TAG = "shade.MainService";
 	LinearLayout mView;
 	SharedMemory shared;
 	
@@ -45,8 +48,20 @@ public class MainService extends Service {
                 	WindowManager.LayoutParams.MATCH_PARENT,
         	        WindowManager.LayoutParams.MATCH_PARENT,
 	                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
-                	0 | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                	WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+									| WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+									| WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN, /* dim statusbar, too */
         	        PixelFormat.TRANSLUCENT);        
+					if(shared.getBblOff()) {
+							/* from https://github.com/TomTasche/ScreenFilter.git */
+							try {
+									WindowManager.LayoutParams.class.getField("buttonBrightness").set(params, Integer.valueOf(0));
+							}
+							catch (Exception ex) {
+									Log.w(TAG, "Cannot set button brightness");
+									ex.printStackTrace();
+							}
+					}
 	        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         	wm.addView(mView, params);
 	}

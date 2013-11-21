@@ -102,13 +102,22 @@
 		        android:max="255"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"/>
-	        
+
+					<CheckBox
+	            android:layout_below="@+id/blueControl"
+							android:id="@+id/bblOff"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:padding="10dp"
+							android:text="Turn off button backlight"/>
+
+
 	        <LinearLayout 
 		        android:id="@+id/buttons"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_alignParentLeft="true"
-		        android:layout_below="@+id/blueControl"
+		        android:layout_below="@+id/bblOff"
 		        android:orientation="horizontal"
 		        android:layout_marginTop="10dp"
 	        >
