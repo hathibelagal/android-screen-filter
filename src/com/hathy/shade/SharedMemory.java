@@ -31,6 +31,10 @@ public class SharedMemory {
 		prefs.edit().putInt("blue", value).commit();
 	}
 	
+	void setBblOff(boolean value){
+		prefs.edit().putBoolean("bblOff", value).commit();
+	}
+	
 	int getBlue(){
 		return prefs.getInt("blue", 0x00);
 	}
@@ -45,6 +49,10 @@ public class SharedMemory {
 	
 	int getAlpha(){
 		return prefs.getInt("alpha", 0x33);
+	}
+	
+	boolean getBblOff(){
+		return prefs.getBoolean("bblOff", true);
 	}
 	
 	public static int getColor(int alpha, int red, int green, int blue){
