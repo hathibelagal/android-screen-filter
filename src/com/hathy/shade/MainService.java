@@ -45,7 +45,8 @@ public class MainService extends Service {
                 	WindowManager.LayoutParams.MATCH_PARENT,
         	        WindowManager.LayoutParams.MATCH_PARENT,
 	                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
-                	0 | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                	WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+        		WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
         	        PixelFormat.TRANSLUCENT);        
 	        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         	wm.addView(mView, params);
